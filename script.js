@@ -1,72 +1,83 @@
-/* Particle background container */
-#snow {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  z-index: -10; /* Keeps it behind all other content */
-  pointer-events: none; /* Ensure particles don’t interfere with interactions */
-}
+const enterButton = document.getElementById('enterButton');
+const videoContainer = document.getElementById('videoContainer');
 
-/* Full viewport background */
-body, html {
-  height: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: black;
-  color: white;
-  font-family: Arial, sans-serif;
-  margin: 0;
-  padding: 0;
-}
+enterButton.addEventListener('click', () => {
+  // Fade out the button
+  enterButton.style.opacity = '0';
 
-/* Container for Enter button */
-#enterButtonContainer {
-  z-index: 1; /* Ensures it’s above the #snow background */
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-  width: 100%;
-}
+  // Wait for the fade-out to finish, then display video
+  setTimeout(() => {
+    enterButton.style.display = 'none'; // Hide the button
+    videoContainer.style.display = 'block'; // Show the video container
+    // Fade in the video
+    setTimeout(() => {
+      videoContainer.style.opacity = '1'; // Make the video fade in
+    }, 100); // Small delay to allow the container to be visible before the fade-in
+  }, 500); // Wait for 0.5 seconds for the fade effect
+});
 
-/* Button styling */
-#enterButton {
-  padding: 15px 30px;
-  font-size: 1.2em;
-  color: white;
-  background-color: transparent;
-  border: 2px solid white;
-  border-radius: 5px;
-  cursor: pointer;
-  transition: opacity 0.5s ease;
-  outline: none;
-}
-
-#enterButton:focus, #enterButton:active {
-  outline: none;
-  box-shadow: none; /* Removes any potential shadow */
-  border-color: white;
-}
-
-/* Video container styling */
-#videoContainer {
-  display: none; /* Hidden by default */
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: black;
-  z-index: 0; /* Ensures video is above snow but below the enter button */
-  opacity: 0; /* Start with hidden video */
-  transition: opacity 1s ease-in-out; /* Fade-in effect */
-}
-
-#videoContainer video {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
+// Particle effect initialization
+document.addEventListener('DOMContentLoaded', function () {
+    const script = document.createElement('script');
+    script.src = 'https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js';
+    script.onload = function () {
+        particlesJS("snow", {
+            "particles": {
+                "number": {
+                    "value": 40,
+                    "density": {
+                        "enable": true,
+                        "value_area": 800
+                    }
+                },
+                "color": {
+                    "value": "#ffffff"
+                },
+                "opacity": {
+                    "value": 0.7,
+                    "random": true,
+                    "anim": {
+                        "enable": true
+                    }
+                },
+                "size": {
+                    "value": 2.3,
+                    "random": true,
+                    "anim": {
+                        "enable": true
+                    }
+                },
+                "line_linked": {
+                    "enable": false
+                },
+                "move": {
+                    "enable": true,
+                    "speed": 5,
+                    "direction": "bottom",
+                    "random": true,
+                    "straight": false,
+                    "out_mode": "out",
+                    "bounce": false,
+                    "attract": {
+                        "enable": true,
+                        "rotateX": 300,
+                        "rotateY": 1200
+                    }
+                }
+            },
+            "interactivity": {
+                "events": {
+                    "onhover": {
+                        "enable": false
+                    },
+                    "onclick": {
+                        "enable": true
+                    },
+                    "resize": false
+                }
+            },
+            "retina_detect": true
+        });
+    };
+    document.head.append(script);
+});
