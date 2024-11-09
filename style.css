@@ -1,12 +1,13 @@
-/* Particle background container */
+/* Particle background container (snow) */
 #snow {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  z-index: -10; /* Keeps it behind all other content */
-  pointer-events: none; /* Ensure particles don’t interfere with interactions */
+  z-index: -10; /* Ensures it stays behind all other elements */
+  pointer-events: none; /* Ensures particles don’t interfere with interactions */
+  opacity: 1; /* Ensure snow stays visible */
 }
 
 /* Full viewport background */
@@ -22,9 +23,9 @@ body, html {
   padding: 0;
 }
 
-/* Container for Enter button */
+/* Container for the Enter button */
 #enterButtonContainer {
-  z-index: 1; /* Ensures it’s above the #snow background */
+  z-index: 1; /* Ensures the button is above the snow */
   display: flex;
   justify-content: center;
   align-items: center;
@@ -60,7 +61,9 @@ body, html {
   width: 100%;
   height: 100%;
   background-color: black;
-  z-index: 0; /* Ensures video is above snow but below the enter button */
+  z-index: 0; /* Ensures video is above snow but below the button */
+  opacity: 0; /* Start with hidden video */
+  transition: opacity 1s ease-in-out; /* Fade-in effect */
 }
 
 #videoContainer video {
