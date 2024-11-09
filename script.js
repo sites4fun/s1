@@ -2,13 +2,17 @@ const enterButton = document.getElementById('enterButton');
 const videoContainer = document.getElementById('videoContainer');
 
 enterButton.addEventListener('click', () => {
+  // Fade out the button
   enterButton.style.opacity = '0';
+
+  // Wait for the fade-out to finish, then display video
   setTimeout(() => {
-    enterButton.style.display = 'none';
-    videoContainer.style.display = 'block';
-  }, 500);
+    enterButton.style.display = 'none'; // Hide the button
+    videoContainer.style.display = 'block'; // Show the video
+  }, 500); // Wait for 0.5 seconds for the fade effect
 });
 
+// Particle effect initialization
 document.addEventListener('DOMContentLoaded', function () {
     const script = document.createElement('script');
     script.src = 'https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js';
