@@ -1,28 +1,18 @@
-// Enter button functionality
 const enterButton = document.getElementById('enterButton');
 const videoContainer = document.getElementById('videoContainer');
 
 enterButton.addEventListener('click', () => {
-  // Fade out the button
   enterButton.style.opacity = '0';
-
-  // Wait for the fade-out to finish, then display video
   setTimeout(() => {
     enterButton.style.display = 'none';
     videoContainer.style.display = 'block';
   }, 500);
 });
 
-// Particle effect initialization with debugging
 document.addEventListener('DOMContentLoaded', function () {
-    console.log('Loading particles.js library...');
-    
     const script = document.createElement('script');
     script.src = 'https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js';
-    
     script.onload = function () {
-        console.log('particles.js library loaded.');
-        
         particlesJS("snow", {
             "particles": {
                 "number": {
@@ -80,9 +70,6 @@ document.addEventListener('DOMContentLoaded', function () {
             },
             "retina_detect": true
         });
-        
-        console.log('particles.js initialized.');
     };
-    
     document.head.append(script);
 });
