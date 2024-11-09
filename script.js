@@ -1,10 +1,11 @@
+// Enter button functionality
 const enterButton = document.getElementById('enterButton');
 const videoContainer = document.getElementById('videoContainer');
 
 enterButton.addEventListener('click', () => {
   // Fade out the button
   enterButton.style.opacity = '0';
-  
+
   // Wait for the fade-out to finish, then display video
   setTimeout(() => {
     enterButton.style.display = 'none';
@@ -14,7 +15,7 @@ enterButton.addEventListener('click', () => {
 
 // Particle effect initialization
 document.addEventListener('DOMContentLoaded', function () {
-    var script = document.createElement('script');
+    const script = document.createElement('script');
     script.src = 'https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js';
     script.onload = function () {
         particlesJS("snow", {
