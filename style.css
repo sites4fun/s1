@@ -5,8 +5,8 @@
   left: 0;
   width: 100%;
   height: 100%;
-  z-index: -1; /* Send it to the background */
-  pointer-events: none; /* Ensures particles don't block button clicks */
+  z-index: -1; /* Place it behind other content */
+  pointer-events: none; /* Ensure particles don’t interfere with clicking the button */
 }
 
 /* Basic reset and styling */
@@ -37,12 +37,13 @@ body, html {
   border-radius: 5px;
   cursor: pointer;
   transition: opacity 0.5s ease;
-  outline: none; /* Removes outline for the default state */
+  outline: none;
 }
 
-/* Remove outline for focus and active states */
 #enterButton:focus, #enterButton:active {
   outline: none;
+  box-shadow: none; /* Removes any potential shadow */
+  border-color: white;
 }
 
 /* Video styling */
