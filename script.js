@@ -8,7 +8,11 @@ enterButton.addEventListener('click', () => {
   // Wait for the fade-out to finish, then display video
   setTimeout(() => {
     enterButton.style.display = 'none'; // Hide the button
-    videoContainer.style.display = 'block'; // Show the video
+    videoContainer.style.display = 'block'; // Show the video container
+    // Fade in the video
+    setTimeout(() => {
+      videoContainer.style.opacity = '1'; // Make the video fade in
+    }, 100); // Small delay to allow the container to be visible before the fade-in
   }, 500); // Wait for 0.5 seconds for the fade effect
 });
 
