@@ -26,7 +26,6 @@ body, html {
   font-family: Arial, sans-serif;
 }
 
-/* Button styling */
 #enterButton {
   padding: 15px 30px;
   font-size: 1.2em;
@@ -36,7 +35,11 @@ body, html {
   border-radius: 5px;
   cursor: pointer;
   transition: opacity 0.5s ease;
-  outline: none;
+  outline: none; /* Removes the outline for the default state */
+}
+
+#enterButton:focus, #enterButton:active {
+  outline: none; /* Removes the outline when the button is clicked or focused */
 }
 
 /* Video styling */
