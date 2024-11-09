@@ -13,11 +13,16 @@ enterButton.addEventListener('click', () => {
   }, 500);
 });
 
-// Particle effect initialization
+// Particle effect initialization with debugging
 document.addEventListener('DOMContentLoaded', function () {
+    console.log('Loading particles.js library...');
+    
     const script = document.createElement('script');
     script.src = 'https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js';
+    
     script.onload = function () {
+        console.log('particles.js library loaded.');
+        
         particlesJS("snow", {
             "particles": {
                 "number": {
@@ -75,6 +80,9 @@ document.addEventListener('DOMContentLoaded', function () {
             },
             "retina_detect": true
         });
+        
+        console.log('particles.js initialized.');
     };
+    
     document.head.append(script);
 });
