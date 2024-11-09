@@ -1,15 +1,13 @@
-/* Particle background container */
 #snow {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  z-index: -1; /* Keeps it behind all other content */
-  pointer-events: none; /* Ensures particles don’t interfere with clicking the button */
+  z-index: -10;
+  pointer-events: none;
 }
 
-/* Full viewport background */
 body, html {
   height: 100%;
   display: flex;
@@ -20,7 +18,15 @@ body, html {
   font-family: Arial, sans-serif;
 }
 
-/* Button styling */
+#enterButtonContainer {
+  z-index: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  width: 100%;
+}
+
 #enterButton {
   padding: 15px 30px;
   font-size: 1.2em;
@@ -35,11 +41,10 @@ body, html {
 
 #enterButton:focus, #enterButton:active {
   outline: none;
-  box-shadow: none; /* Removes any potential shadow */
+  box-shadow: none;
   border-color: white;
 }
 
-/* Video container styling */
 #videoContainer {
   display: none;
   position: fixed;
@@ -48,7 +53,7 @@ body, html {
   width: 100%;
   height: 100%;
   background-color: black;
-  z-index: 0; /* Higher than #snow but lower than #enterButton */
+  z-index: 0;
 }
 
 #videoContainer video {
